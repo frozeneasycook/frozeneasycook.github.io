@@ -1,720 +1,408 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frozen Easy Cook</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frozen – Easy Cook</title>
 
-    <!-- BASIC RESET -->
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+/* ================= GLOBAL STYLE ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: system-ui, "Segoe UI", sans-serif;
+    background: #f2f6ff;
+    color: #222;
+}
+img { max-width: 100%; display: block; }
 
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: #f7f7f7;
-            color: #222;
-            line-height: 1.5;
-        }
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+}
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+/* ================= COLORS ================= */
+:root {
+    --blue: #3aa8ff;
+    --dark-blue: #1b2a7c;
+    --yellow: #f6d52e;
+    --white: #ffffff;
+}
 
-        img {
-            max-width: 100%;
-            display: block;
-        }
+/* ================= HEADER ================= */
+header {
+    background: var(--white);
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+.logo-img {
+    max-height: 60px;
+    width: auto;
+}
 
-        /* LAYOUT */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
+/* Search */
+.search-box {
+    display: flex;
+    flex: 1;
+    max-width: 500px;
+    margin: 0 20px;
+}
+.search-box input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 4px 0 0 4px;
+}
+.search-box button {
+    width: 50px;
+    background: var(--dark-blue);
+    border: none;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
 
-        header {
-            background: #ffffff;
-            border-bottom: 1px solid #e4e4e4;
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
+/* Cart */
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+}
+.cart-count {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    background: var(--dark-blue);
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .top-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 0;
-            gap: 16px;
-        }
+/* NAVIGATION */
+nav {
+    border-top: 1px solid #eee;
+}
+.nav-links {
+    display: flex;
+    gap: 25px;
+    padding: 10px 0;
+}
+.nav-links a {
+    font-weight: bold;
+    color: var(--dark-blue);
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+/* ================= HERO SECTION ================= */
+.hero {
+    margin-top: 20px;
+    background: var(--dark-blue);
+    color: var(--white);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 25px;
+    border-radius: 10px;
+    gap: 20px;
+}
+.hero-title {
+    font-size: 28px;
+    font-weight: 800;
+}
+.hero-badge {
+    background: var(--yellow);
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-weight: bold;
+}
 
-        .logo-box {
-            background: #00554a;
-            color: #fff;
-            padding: 8px 14px;
-            font-weight: 700;
-            border-radius: 4px;
-            font-size: 14px;
-        }
+/* ================= PRODUCTS ================= */
+.products-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+.product-card {
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+.product-body {
+    padding: 15px;
+}
+.product-title {
+    min-height: 50px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.product-price {
+    margin-top: 5px;
+    color: var(--dark-blue);
+    font-weight: bold;
+    font-size: 18px;
+}
+.add-btn {
+    width: 100%;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-        .logo-sub {
-            font-size: 12px;
-            color: #777;
-        }
+/* ================= CHECKOUT PAGE ================= */
+#checkoutModal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.65);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+.checkout-box {
+    background: var(--white);
+    width: 90%;
+    max-width: 450px;
+    padding: 25px;
+    border-radius: 10px;
+}
+.checkout-box h2 {
+    margin-bottom: 15px;
+}
+.checkout-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+.checkout-box button {
+    width: 100%;
+    padding: 12px;
+    background: var(--dark-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    cursor: pointer;
+}
 
-        .search-box {
-            flex: 1;
-            display: flex;
-            max-width: 600px;
-        }
+/* ================= WHATSAPP FIXED BTN ================= */
+.whatsapp-fixed {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #25D366;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 50px;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    z-index: 250;
+}
+.whatsapp-fixed img {
+    width: 27px;
+}
 
-        .search-box input {
-            flex: 1;
-            padding: 10px 12px;
-            border: 1px solid #b0c4c0;
-            border-radius: 4px 0 0 4px;
-            outline: none;
-            font-size: 14px;
-        }
+/* ================= FOOTER ================= */
+footer {
+    margin-top: 50px;
+    background: #111;
+    color: #fff;
+    padding: 35px 0;
+    text-align: center;
+}
+.footer-logo img {
+    max-height: 50px;
+    margin: auto;
+}
+.footer-social a {
+    margin: 0 10px;
+    font-size: 26px;
+    color: var(--yellow);
+}
+.footer-text {
+    margin: 15px 0;
+}
+</style>
 
-        .search-box button {
-            width: 50px;
-            border: none;
-            background: #00554a;
-            color: #fff;
-            font-size: 18px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-        }
-
-        .cart-icon {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .cart-icon svg {
-            width: 28px;
-            height: 28px;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            left: -8px;
-            background: #00554a;
-            color: #fff;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        nav {
-            border-top: 1px solid #f1f1f1;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            padding: 10px 0;
-            font-size: 14px;
-        }
-
-        .nav-links a {
-            color: #00554a;
-        }
-
-        .nav-links a.active {
-            font-weight: 700;
-        }
-
-        /* HERO */
-        .hero {
-            background: #00554a;
-            color: #fff;
-            margin-top: 10px;
-            border-radius: 6px;
-            display: grid;
-            grid-template-columns: 2fr 1.2fr;
-            gap: 24px;
-            padding: 24px;
-        }
-
-        .hero-title {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .hero-subtitle {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-
-        .hero-badge {
-            margin-top: 16px;
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.25);
-            font-size: 13px;
-        }
-
-        .hero-image {
-            border-radius: 6px;
-            overflow: hidden;
-            background: #f4f4f4;
-        }
-
-        .hero-image img {
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
-        }
-
-        /* CATEGORY TAGS */
-        .category-bar {
-            margin: 24px 0 8px;
-        }
-
-        .category-bar button {
-            border-radius: 999px;
-            border: 1px solid #00554a;
-            background: #00554a;
-            color: #fff;
-            font-size: 14px;
-            padding: 8px 18px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-        }
-
-        .category-bar button span.icon {
-            font-size: 16px;
-        }
-
-        /* PRODUCTS GRID */
-        .products-section {
-            margin-top: 8px;
-            padding-bottom: 40px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0,1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 22px rgba(0,0,0,0.10);
-        }
-
-        .product-image-wrapper {
-            background: #f2f2f2;
-            padding: 10px;
-        }
-
-        .product-body {
-            padding: 14px 16px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            flex: 1;
-        }
-
-        .product-title {
-            font-size: 16px;
-            font-weight: 600;
-            min-height: 48px;
-        }
-
-        .product-weight {
-            font-size: 13px;
-            color: #666;
-        }
-
-        .product-price {
-            margin-top: 6px;
-            font-weight: 700;
-            font-size: 16px;
-            color: #00554a;
-        }
-
-        .product-actions {
-            margin-top: 10px;
-        }
-
-        .product-actions button {
-            width: 100%;
-            border: none;
-            background: #00554a;
-            color: #fff;
-            padding: 10px 12px;
-            font-size: 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .product-actions button svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        /* CART DRAWER */
-        .cart-drawer-backdrop {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.35);
-            display: none;
-            z-index: 80;
-        }
-
-        .cart-drawer {
-            position: fixed;
-            top: 0;
-            left: auto;
-            right: 0;
-            width: 320px;
-            max-width: 80%;
-            background: #fff;
-            height: 100vh;
-            box-shadow: -6px 0 20px rgba(0,0,0,0.12);
-            transform: translateX(100%);
-            transition: transform 0.2s ease-out;
-            display: flex;
-            flex-direction: column;
-            z-index: 90;
-        }
-
-        .cart-drawer.open {
-            transform: translateX(0);
-        }
-
-        .cart-drawer-header {
-            padding: 16px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .cart-drawer-header h3 {
-            font-size: 18px;
-        }
-
-        .cart-close-btn {
-            background: none;
-            border: none;
-            font-size: 22px;
-            cursor: pointer;
-        }
-
-        .cart-items {
-            padding: 16px;
-            flex: 1;
-            overflow-y: auto;
-        }
-
-        .cart-item {
-            font-size: 14px;
-            margin-bottom: 8px;
-            border-bottom: 1px solid #f1f1f1;
-            padding-bottom: 6px;
-        }
-
-        .cart-item-title {
-            font-weight: 600;
-        }
-
-        .cart-summary {
-            border-top: 1px solid #eee;
-            padding: 14px 16px;
-        }
-
-        .cart-summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        .checkout-btn {
-            width: 100%;
-            border: none;
-            background: #00554a;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #000;
-            color: #fff;
-            padding: 32px 0;
-            margin-top: 40px;
-        }
-
-        .footer-logo {
-            margin-bottom: 16px;
-        }
-
-        .footer-logo-box {
-            background: #ffffff;
-            color: #00554a;
-            padding: 6px 12px;
-            display: inline-block;
-            font-weight: 700;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .footer-text {
-            font-size: 16px;
-            margin-bottom: 18px;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 14px;
-        }
-
-        .footer-social a {
-            width: 42px;
-            height: 42px;
-            border-radius: 8px;
-            background: #00554a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: 1fr;
-            }
-            .hero-image {
-                order: -1;
-            }
-            .products-grid {
-                grid-template-columns: repeat(2, minmax(0,1fr));
-            }
-        }
-
-        @media (max-width: 600px) {
-            .top-bar {
-                flex-wrap: wrap;
-            }
-            .products-grid {
-                grid-template-columns: repeat(1, minmax(0,1fr));
-            }
-        }
-    </style>
 </head>
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
-    <div class="container">
-        <div class="top-bar">
-            <!-- Logo -->
-<div class="logo">
-    <img src="logo.png">
+<div class="container top-bar">
+
+    <div class="logo">
+        <img src="logo.png" class="logo-img">
+    </div>
+
+    <form class="search-box">
+        <input type="text" placeholder="ابحث عن المنتجات">
+        <button>🔍</button>
+    </form>
+
+    <div class="cart-icon" onclick="openCheckout()">
+        <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" width="30">
+        <div class="cart-count" id="cartCount">0</div>
+    </div>
+
 </div>
 
-            <!-- Search -->
-            <form class="search-box" id="searchForm">
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="ابحث عن المنتجات"
-                />
-                <button type="submit">🔍</button>
-            </form>
-
-            <!-- Cart -->
-            <div class="cart-icon" id="cartButton" title="سلة المشتريات">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M7 4h-2l-1 2m0 0l2.4 9.6c.1.6.7 1.4 1.6 1.4h8.4c.9 0 1.5-.8 1.6-1.4L20 6H4zm5 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <div class="cart-count" id="cartCount">0</div>
-            </div>
-        </div>
-
-        <nav>
-            <div class="nav-links">
-                <a href="#" class="active">الصفحة الرئيسية</a>
-                <a href="#products">منتجاتنا</a>
-                <a href="#footer">تواصل معنا</a>
-            </div>
-        </nav>
+<nav class="container">
+    <div class="nav-links">
+        <a href="#">الصفحة الرئيسية</a>
+        <a href="#products">منتجاتنا</a>
+        <a href="#footer">تواصل معنا</a>
     </div>
+</nav>
 </header>
 
-<main class="container">
-    <!-- HERO -->
-    <section class="hero">
-        <div>
-            <div class="hero-title">سكندر – كبده سريعة التحضير</div>
-            <div class="hero-subtitle">
-                اطلب دلوقتي أجمد وجبة كبدة اسكندراني جاهزة بالتتبيلة والخلطة والعيش،
-                توصل لحد باب بيتك جاهزة للتحمير على طول.
-            </div>
-            <div class="hero-badge">
-                ✅ توصيل في نفس اليوم داخل القاهرة – اطلب قبل الساعة 6 مساءً
-            </div>
-        </div>
-        <div class="hero-image">
-            <!-- استبدل الصورة دي بصورة حقيقية من عندك -->
-            <img src="https://via.placeholder.com/600x300?text=SKANDR+Banner" alt="SKANDR banner">
-        </div>
-    </section>
-
-    <!-- CATEGORY TAGS -->
-    <section class="category-bar">
-        <button type="button">
-            <span class="icon">🏷️</span>
-            كبده اسكندراني
-        </button>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section class="products-section" id="products">
-        <div class="products-grid" id="productsGrid">
-            <!-- JS will inject product cards here -->
-        </div>
-    </section>
-</main>
-
-<!-- CART DRAWER -->
-<div class="cart-drawer-backdrop" id="cartBackdrop"></div>
-<div class="cart-drawer" id="cartDrawer">
-    <div class="cart-drawer-header">
-        <h3>سلة المشتريات</h3>
-        <button class="cart-close-btn" id="cartCloseBtn">&times;</button>
+<!-- ================= HERO ================= -->
+<div class="container">
+<section class="hero">
+    <div>
+        <div class="hero-title">Frozen – جاهز للتحمير</div>
+        <p>اطلب دلوقتي أفضل منتجات الفروزن الجاهزة ووصلك لحد البيت.</p>
+        <div class="hero-badge">⭐ توصيل نفس اليوم</div>
     </div>
-    <div class="cart-items" id="cartItems"></div>
-    <div class="cart-summary">
-        <div class="cart-summary-row">
-            <span>الإجمالي:</span>
-            <span id="cartTotal">0 EGP</span>
-        </div>
-        <button class="checkout-btn" onclick="alert('هنتواصل معاك على الواتساب لتأكيد الطلب 😊');">
-            أكمل الطلب الآن
-        </button>
+    <img src="https://via.placeholder.com/600x350?text=Frozen+Banner">
+</section>
+</div>
+
+<!-- ================= PRODUCTS ================= -->
+<div class="container">
+<div id="products" class="products-grid"></div>
+</div>
+
+<!-- ================= CHECKOUT MODAL ================= -->
+<div id="checkoutModal">
+    <div class="checkout-box">
+        <h2>إتمام الطلب</h2>
+
+        <div id="orderDetails" style="margin-bottom:12px; font-weight:bold;"></div>
+
+        <input id="phoneInput" placeholder="ادخل رقم الهاتف">
+
+        <button onclick="sendOrder()">ارسال الطلب على واتساب</button>
     </div>
 </div>
 
-<!-- FOOTER -->
+<!-- ================= WHATSAPP FIXED BUTTON ================= -->
+<div class="whatsapp-fixed" onclick="directWhatsapp()">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+    اطلب الآن
+</div>
+
+<!-- ================= FOOTER ================= -->
 <footer id="footer">
-    <div class="container">
-        <div class="footer-logo">
-            <div class="footer-logo-box">Frozen Easy Cook</div>
-        </div>
-        <div class="footer-text">زوروا موقعنا على</div>
-        <div class="footer-social">
-            <!-- استبدل # بروابطك -->
-            <a href="#" aria-label="Phone">📞</a>
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="Instagram">◎</a>
-            <a href="#" aria-label="TikTok">♬</a>
-        </div>
+    <div class="footer-logo">
+        <img src="logo.png">
+    </div>
+    <div class="footer-text">تابعونا على السوشيال ميديا</div>
+
+    <div class="footer-social">
+        <a href="https://wa.me/201069394898" target="_blank">🟢</a>
+        <a href="https://www.facebook.com/FROZEN.Easy.Cook" target="_blank">📘</a>
+        <a href="https://www.instagram.com/frozen.easy.cook/" target="_blank">📸</a>
+        <a href="https://www.tiktok.com/@frozen2237" target="_blank">🎵</a>
     </div>
 </footer>
 
-<!-- SCRIPT -->
+<!-- ================= JS ================= -->
 <script>
-    // ----------- PRODUCTS DATA -----------
-    // عدّل المنتجات كما تحب (الاسم/السعر/الصورة)
-    const products = [
-        {
-            id: 1,
-            name: "كبدة اسكندراني مع التوابل والخلطة + شرايح",
-            weight: "وجبة عائلية",
-            price: 185,
-            image: "https://via.placeholder.com/400x300?text=Pack+1"
-        },
-        {
-            id: 2,
-            name: "كبدة اسكندراني مع التوابل والخلطة 500 جرام",
-            weight: "500 جرام",
-            price: 170,
-            image: "https://via.placeholder.com/400x300?text=Pack+2"
-        },
-        {
-            id: 3,
-            name: "كبدة اسكندراني سادة مع التوابل فقط",
-            weight: "750 جرام",
-            price: 210,
-            image: "https://via.placeholder.com/400x300?text=Pack+3"
-        },
-        {
-            id: 4,
-            name: "وجبة سكندر عائلية (كبدة + صوص + عيش)",
-            weight: "يكفي 4 أفراد",
-            price: 320,
-            image: "https://via.placeholder.com/400x300?text=Family+Pack"
-        }
-    ];
+const WHATSAPP_NUMBER = "201069394898";
 
-    const productsGrid = document.getElementById("productsGrid");
-    const searchForm = document.getElementById("searchForm");
-    const searchInput = document.getElementById("searchInput");
+/* DUMMY PRODUCTS */
+const products = [
+    { id:1, name:"ستريبس اوريجينال 1 كيلو", price:290, image:"https://via.placeholder.com/300" },
+    { id:2, name:"ستريبس سبايسي 1 كيلو", price:300, image:"https://via.placeholder.com/300" },
+    { id:3, name:"برجر 1 كيلو", price:240, image:"https://via.placeholder.com/300" },
+    { id:4, name:"كفتة 1 كيلو", price:250, image:"https://via.placeholder.com/300" }
+];
 
-    const cartButton = document.getElementById("cartButton");
-    const cartDrawer = document.getElementById("cartDrawer");
-    const cartBackdrop = document.getElementById("cartBackdrop");
-    const cartCloseBtn = document.getElementById("cartCloseBtn");
-    const cartCountElem = document.getElementById("cartCount");
-    const cartItemsElem = document.getElementById("cartItems");
-    const cartTotalElem = document.getElementById("cartTotal");
+// CART
+let cart = [];
 
-    let cart = [];
-
-    // ----------- RENDER PRODUCTS ----------
-    function renderProducts(list) {
-        productsGrid.innerHTML = "";
-        if (!list.length) {
-            productsGrid.innerHTML = "<p>لا توجد منتجات مطابقة لبحثك.</p>";
-            return;
-        }
-
-        list.forEach((p) => {
-            const card = document.createElement("article");
-            card.className = "product-card";
-            card.innerHTML = `
-                <div class="product-image-wrapper">
-                    <img src="${p.image}" alt="${p.name}" />
-                </div>
-                <div class="product-body">
-                    <div class="product-title">${p.name}</div>
-                    <div class="product-weight">${p.weight || ""}</div>
-                    <div class="product-price">EGP ${p.price}</div>
-                    <div class="product-actions">
-                        <button data-id="${p.id}">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M7 4h-2l-1 2m0 0l2.4 9.6c.1.6.7 1.4 1.6 1.4h8.4c.9 0 1.5-.8 1.6-1.4L20 6H4zm5 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span>أضف للسلة</span>
-                        </button>
-                    </div>
-                </div>
-            `;
-            productsGrid.appendChild(card);
-        });
-
-        // Attach add-to-cart handlers
-        document.querySelectorAll(".product-actions button").forEach((btn) => {
-            btn.addEventListener("click", () => {
-                const id = Number(btn.dataset.id);
-                addToCart(id);
-            });
-        });
-    }
-
-    renderProducts(products);
-
-    // ----------- SEARCH ----------
-    searchForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const term = searchInput.value.trim();
-        const filtered = products.filter((p) =>
-            p.name.toLowerCase().includes(term.toLowerCase())
-        );
-        renderProducts(filtered);
+function loadProducts() {
+    const grid = document.getElementById("products");
+    grid.innerHTML = "";
+    products.forEach(p => {
+        grid.innerHTML += `
+        <div class="product-card">
+            <img src="${p.image}">
+            <div class="product-body">
+                <div class="product-title">${p.name}</div>
+                <div class="product-price">EGP ${p.price}</div>
+                <button class="add-btn" onclick="addToCart(${p.id})">إضافة للسلة</button>
+            </div>
+        </div>
+        `;
     });
+}
 
-    // ----------- CART ----------
-    function addToCart(productId) {
-        const existing = cart.find((item) => item.id === productId);
-        if (existing) {
-            existing.qty += 1;
-        } else {
-            const product = products.find((p) => p.id === productId);
-            cart.push({ ...product, qty: 1 });
-        }
-        updateCartUI();
+function addToCart(id) {
+    const item = products.find(p => p.id === id);
+    cart.push(item);
+    document.getElementById("cartCount").innerText = cart.length;
+}
+
+function openCheckout() {
+    if(cart.length === 0) {
+        alert("السلة فارغة!");
+        return;
     }
+    document.getElementById("checkoutModal").style.display = "flex";
 
-    function updateCartUI() {
-        // count
-        const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-        cartCountElem.textContent = totalQty;
+    let summary = "";
+    cart.forEach(c => summary += `• ${c.name} – ${c.price} EGP<br>`);
 
-        // items list
-        cartItemsElem.innerHTML = "";
-        if (!cart.length) {
-            cartItemsElem.innerHTML = "<p>السلة فارغة حتى الآن.</p>";
-        } else {
-            cart.forEach((item) => {
-                const div = document.createElement("div");
-                div.className = "cart-item";
-                div.innerHTML = `
-                    <div class="cart-item-title">${item.name}</div>
-                    <div>الكمية: ${item.qty}</div>
-                    <div>السعر: EGP ${item.price * item.qty}</div>
-                `;
-                cartItemsElem.appendChild(div);
-            });
-        }
+    document.getElementById("orderDetails").innerHTML = summary;
+}
 
-        // total
-        const totalPrice = cart.reduce(
-            (sum, item) => sum + item.price * item.qty,
-            0
-        );
-        cartTotalElem.textContent = `${totalPrice} EGP`;
-    }
+function sendOrder() {
+    const phone = document.getElementById("phoneInput").value.trim();
+    if(phone === "") { alert("ادخل رقم الهاتف"); return; }
 
-    function openCart() {
-        cartDrawer.classList.add("open");
-        cartBackdrop.style.display = "block";
-    }
+    let message = "طلب جديد من موقع Frozen:%0A";
+    cart.forEach(c => message += `• ${c.name} - ${c.price} EGP%0A`);
+    message += `%0Aرقم الهاتف: ${phone}`;
 
-    function closeCart() {
-        cartDrawer.classList.remove("open");
-        cartBackdrop.style.display = "none";
-    }
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+}
 
-    cartButton.addEventListener("click", openCart);
-    cartCloseBtn.addEventListener("click", closeCart);
-    cartBackdrop.addEventListener("click", closeCart);
+function directWhatsapp(){
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
+}
+
+loadProducts();
 </script>
 
 </body>
