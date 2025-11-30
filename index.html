@@ -65,10 +65,18 @@ header {
 .search-box input {
     flex: 1;
     padding: 10px;
-    border: none;
-    outline: none;
-    border-radius: 4px 0 0 4px;
     background: #ffffff;
+    outline: none;
+
+    /* ====== NEW FRAME ====== */
+    border: 2px solid #ddd;      /* خفيف وواضح */
+    border-radius: 8px;          /* علشان يبان modern */
+    transition: 0.25s ease;      /* أنيميشين بسيط */
+}
+
+.search-box input:focus {
+    border-color: #3aa8ff;       /* لون أزرق Frozen */
+    box-shadow: 0 0 6px rgba(58,168,255,0.4);
 }
 
 .search-box button {
