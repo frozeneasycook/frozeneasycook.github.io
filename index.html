@@ -1,604 +1,721 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>فروزن – أفضل منتجات مجمدة جاهزة على الطهي</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="تشيكن ستريبس، برجر، بطاطس وسوسات جاهزة للقلي بجودة عالية. اطلب أونلاين من فروزن مع توصيل مجمد لحد باب البيت.">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SKANDR - كبده سريعة التحضير</title>
 
-  <!-- Preview for Facebook / WhatsApp -->
-  <meta property="og:title" content="فروزن – اطلب المنتجات المجمدة أونلاين">
-  <meta property="og:description" content="أقوى تشيكن ستريبس وبرجر مجمد مع توصيل سريع ودفع عند الاستلام.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://frozeneasycook.github.io">
-  <!-- بعد ما ترفع صورة غلاف غيّر الرابط هنا -->
-  <!-- <meta property="og:image" content="https://frozeneasycook.github.io/images/hero.jpg"> -->
+    <!-- BASIC RESET -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  <style>
-    :root {
-      --bg: #083034;
-      --bg-soft: #0f3f44;
-      --accent: #ffd66b;
-      --accent-2: #19c27b;
-      --text-main: #fdfcf7;
-      --text-sub: #d6e0e0;
-      --card-bg: #0b2427;
-      --border-soft: rgba(255,255,255,0.12);
-      --radius: 18px;
-    }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f7f7f7;
+            color: #222;
+            line-height: 1.5;
+        }
 
-    * { box-sizing: border-box; }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #11555c 0%, #041415 55%, #020708 100%);
-      color: var(--text-main);
-      line-height: 1.7;
-    }
+        img {
+            max-width: 100%;
+            display: block;
+        }
 
-    a { color: inherit; text-decoration: none; }
+        /* LAYOUT */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
 
-    .page {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 14px;
-    }
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e4e4e4;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
 
-    /* Cart bar */
-    .cart-bar {
-      background: #021213;
-      border-radius: 999px;
-      padding: 8px 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border: 1px solid var(--border-soft);
-      font-size: 0.85rem;
-      margin-bottom: 10px;
-    }
-    .cart-info span {
-      margin-left: 10px;
-    }
-    .cart-actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .btn-small {
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: transparent;
-      color: var(--text-main);
-      cursor: pointer;
-      font-size: 0.8rem;
-    }
-    .btn-small.primary {
-      background: var(--accent-2);
-      border-color: var(--accent-2);
-      color: #021109;
-      font-weight: 600;
-    }
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            gap: 16px;
+        }
 
-    /* Header / nav */
-    header {
-      background: var(--bg-soft);
-      border-radius: var(--radius);
-      padding: 14px 16px 16px;
-      border: 1px solid var(--border-soft);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .brand-logo {
-      width: 46px;
-      height: 46px;
-      border-radius: 999px;
-      background: radial-gradient(circle at top, #ffe9a3, #f5c860);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #14302d;
-      font-weight: 800;
-      font-size: 1.2rem;
-    }
-    .brand-title {
-      font-weight: 700;
-      font-size: 1.05rem;
-    }
-    .brand-sub {
-      font-size: 0.8rem;
-      color: var(--text-sub);
-    }
-    .nav-links {
-      display: flex;
-      gap: 10px;
-      font-size: 0.85rem;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-    }
-    .nav-links a:hover {
-      border-color: rgba(255,255,255,0.25);
-      background: rgba(0,0,0,0.15);
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    /* Hero */
-    .hero {
-      margin-top: 10px;
-      padding: 18px;
-      border-radius: var(--radius);
-      background: radial-gradient(circle at top left, rgba(255,214,107,0.25), rgba(0,0,0,0.7) 45%, #021617 100%);
-      border: 1px solid var(--border-soft);
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
-      gap: 16px;
-      align-items: center;
-    }
-    .hero-badge {
-      display: inline-flex;
-      border-radius: 999px;
-      border: 1px solid rgba(255,214,107,0.6);
-      background: rgba(0,0,0,0.5);
-      font-size: 0.8rem;
-      padding: 3px 9px;
-      margin-bottom: 6px;
-    }
-    .hero h1 {
-      margin: 8px 0;
-      font-size: 1.8rem;
-    }
-    .hero-sub {
-      margin: 0 0 10px;
-      font-size: 0.9rem;
-      color: var(--text-sub);
-    }
-    .hero-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-    .pill {
-      font-size: 0.8rem;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.45);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--text-sub);
-    }
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 6px;
-    }
-    .btn {
-      padding: 9px 16px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #25d366, #19c27b);
-      color: #021109;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.6);
-    }
-    .btn-outline {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.25);
-      color: var(--text-main);
-    }
-    .hero-note {
-      font-size: 0.8rem;
-      color: var(--text-sub);
-      margin-top: 4px;
-    }
-    .hero-image {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.5);
-      background: #000;
-      position: relative;
-      min-height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8px;
-      font-size: 0.85rem;
-      color: var(--text-sub);
-    }
-    .hero-tag {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      font-size: 0.75rem;
-      background: rgba(0,0,0,0.8);
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.25);
-    }
+        .logo-box {
+            background: #00554a;
+            color: #fff;
+            padding: 8px 14px;
+            font-weight: 700;
+            border-radius: 4px;
+            font-size: 14px;
+        }
 
-    /* Product card */
-    .main-product {
-      margin-top: 18px;
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      border: 1px solid var(--border-soft);
-      padding: 16px;
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 16px;
-    }
-    .product-text h2 {
-      margin: 0 0 6px;
-      font-size: 1.3rem;
-    }
-    .product-badge {
-      display: inline-block;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(255,214,107,0.12);
-      color: var(--accent);
-      font-size: 0.75rem;
-      margin-bottom: 4px;
-    }
-    .product-desc {
-      font-size: 0.9rem;
-      color: var(--text-sub);
-      margin-bottom: 8px;
-    }
-    .product-meta {
-      font-size: 0.85rem;
-      margin-bottom: 8px;
-    }
-    .product-meta strong {
-      color: var(--accent);
-    }
-    .product-controls {
-      margin-top: 6px;
-      font-size: 0.85rem;
-    }
-    .qty-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-    .qty-row input {
-      width: 60px;
-      padding: 4px;
-      border-radius: 6px;
-      border: 1px solid rgba(255,255,255,0.25);
-      background: #021516;
-      color: var(--text-main);
-      text-align: center;
-    }
-    .price-now {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-    .old-price {
-      text-decoration: line-through;
-      color: rgba(214,224,224,0.6);
-      font-size: 0.85rem;
-      margin-left: 6px;
-    }
-    .product-image-wrapper {
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.6);
-      background: #000;
-      min-height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-sub);
-      padding: 8px;
-    }
+        .logo-sub {
+            font-size: 12px;
+            color: #777;
+        }
 
-    .note {
-      font-size: 0.8rem;
-      color: var(--text-sub);
-      margin-top: 6px;
-    }
+        .search-box {
+            flex: 1;
+            display: flex;
+            max-width: 600px;
+        }
 
-    /* Footer + location */
-    .location-section {
-      margin-top: 18px;
-      background: var(--bg-soft);
-      border-radius: var(--radius);
-      border: 1px solid var(--border-soft);
-      padding: 12px 14px;
-      font-size: 0.85rem;
-    }
-    .location-actions {
-      margin-top: 8px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+        .search-box input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #b0c4c0;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            font-size: 14px;
+        }
 
-    .social-row {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.85rem;
-    }
-    .social-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.25);
-      background: rgba(0,0,0,0.4);
-    }
-    .social-icon {
-      width: 20px;
-      height: 20px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.14);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-    }
+        .search-box button {
+            width: 50px;
+            border: none;
+            background: #00554a;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
 
-    footer {
-      margin: 18px 0 24px;
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--text-sub);
-    }
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
 
-    @media (max-width: 780px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-      .hero {
-        grid-template-columns: minmax(0,1fr);
-      }
-      .main-product {
-        grid-template-columns: minmax(0,1fr);
-      }
-      .cart-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
-      .hero h1 {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+        .cart-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            background: #00554a;
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav {
+            border-top: 1px solid #f1f1f1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: #00554a;
+        }
+
+        .nav-links a.active {
+            font-weight: 700;
+        }
+
+        /* HERO */
+        .hero {
+            background: #00554a;
+            color: #fff;
+            margin-top: 10px;
+            border-radius: 6px;
+            display: grid;
+            grid-template-columns: 2fr 1.2fr;
+            gap: 24px;
+            padding: 24px;
+        }
+
+        .hero-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .hero-badge {
+            margin-top: 16px;
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.25);
+            font-size: 13px;
+        }
+
+        .hero-image {
+            border-radius: 6px;
+            overflow: hidden;
+            background: #f4f4f4;
+        }
+
+        .hero-image img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* CATEGORY TAGS */
+        .category-bar {
+            margin: 24px 0 8px;
+        }
+
+        .category-bar button {
+            border-radius: 999px;
+            border: 1px solid #00554a;
+            background: #00554a;
+            color: #fff;
+            font-size: 14px;
+            padding: 8px 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .category-bar button span.icon {
+            font-size: 16px;
+        }
+
+        /* PRODUCTS GRID */
+        .products-section {
+            margin-top: 8px;
+            padding-bottom: 40px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0,1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+        }
+
+        .product-image-wrapper {
+            background: #f2f2f2;
+            padding: 10px;
+        }
+
+        .product-body {
+            padding: 14px 16px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            min-height: 48px;
+        }
+
+        .product-weight {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .product-price {
+            margin-top: 6px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #00554a;
+        }
+
+        .product-actions {
+            margin-top: 10px;
+        }
+
+        .product-actions button {
+            width: 100%;
+            border: none;
+            background: #00554a;
+            color: #fff;
+            padding: 10px 12px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .product-actions button svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* CART DRAWER */
+        .cart-drawer-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.35);
+            display: none;
+            z-index: 80;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            left: auto;
+            right: 0;
+            width: 320px;
+            max-width: 80%;
+            background: #fff;
+            height: 100vh;
+            box-shadow: -6px 0 20px rgba(0,0,0,0.12);
+            transform: translateX(100%);
+            transition: transform 0.2s ease-out;
+            display: flex;
+            flex-direction: column;
+            z-index: 90;
+        }
+
+        .cart-drawer.open {
+            transform: translateX(0);
+        }
+
+        .cart-drawer-header {
+            padding: 16px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-drawer-header h3 {
+            font-size: 18px;
+        }
+
+        .cart-close-btn {
+            background: none;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            padding: 16px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            font-size: 14px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #f1f1f1;
+            padding-bottom: 6px;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+        }
+
+        .cart-summary {
+            border-top: 1px solid #eee;
+            padding: 14px 16px;
+        }
+
+        .cart-summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            border: none;
+            background: #00554a;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 32px 0;
+            margin-top: 40px;
+        }
+
+        .footer-logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-logo-box {
+            background: #ffffff;
+            color: #00554a;
+            padding: 6px 12px;
+            display: inline-block;
+            font-weight: 700;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 14px;
+        }
+
+        .footer-social a {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            background: #00554a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .hero-image {
+                order: -1;
+            }
+            .products-grid {
+                grid-template-columns: repeat(2, minmax(0,1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .top-bar {
+                flex-wrap: wrap;
+            }
+            .products-grid {
+                grid-template-columns: repeat(1, minmax(0,1fr));
+            }
+        }
+    </style>
 </head>
 <body>
 
-<div class="page">
+<header>
+    <div class="container">
+        <div class="top-bar">
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-box">SKANDR</div>
+                <div class="logo-sub">كبده سريعة التحضير</div>
+            </div>
 
-  <!-- Cart bar -->
-  <div class="cart-bar">
-    <div class="cart-info">
-      <span>عناصر العربة: <strong id="cart-items">0</strong></span>
-      <span>المجموع: <strong id="cart-total">0</strong> جنيه</span>
-    </div>
-    <div class="cart-actions">
-      <button class="btn-small" type="button" onclick="resetCart()">تسوق من جديد</button>
-      <!-- مهم: غيّر رقم واتساب تحت في الجافاسكربت -->
-      <button class="btn-small primary" type="button" onclick="checkout()">الدفع / إتمام الطلب</button>
-    </div>
-  </div>
+            <!-- Search -->
+            <form class="search-box" id="searchForm">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="ابحث عن المنتجات"
+                />
+                <button type="submit">🔍</button>
+            </form>
 
-  <!-- Header -->
-  <header>
-    <div class="brand">
-      <div class="brand-logo">FZ</div>
-      <div>
-        <div class="brand-title">فروزن – Frozen Easy Cook</div>
-        <div class="brand-sub">منتجات مجمدة جاهزة على الطهي</div>
-      </div>
-    </div>
-    <nav class="nav-links">
-      <a href="#home">الصفحة الرئيسية</a>
-      <a href="#location">موقعنا</a>
-      <a href="#contact">تواصل معنا</a>
-    </nav>
-  </header>
-
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <div>
-      <div class="hero-badge">عرض خاص على التشيكن ستريبس اليوم</div>
-      <h1>تشيكن ستريبس وبرجر بجودة مطاعم – في بيتك خلال دقائق 🔥</h1>
-      <p class="hero-sub">
-        اطلب أفضل المنتجات المجمدة الجاهزة على الطهي. تشيكن ستريبس مقرمشة، برجر لحمة، بطاطس وسوسات خاصة. توصيل مجمد مع دفع عند الاستلام.
-      </p>
-      <div class="hero-points">
-        <div class="pill">حفظ مجمد مثالي</div>
-        <div class="pill">توصيل في نفس اليوم (في مناطق محددة)</div>
-        <div class="pill">بدون حد أدنى مرتفع للطلب</div>
-      </div>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#product">شوف تفاصيل العرض</a>
-        <a class="btn btn-outline" href="#contact">اسأل على واتساب</a>
-      </div>
-      <div class="hero-note">
-        * الكميات محدودة – رسالتك على واتساب هي تأكيد الحجز الفعلي.
-      </div>
-    </div>
-    <div class="hero-image">
-      <!-- بعدين استبدل الكلام ده بصورة طبق منتجات فروزن -->
-      ضع هنا صورة احترافية فيها تشيكن ستريبس + برجر + بطاطس مع شعار البراند.
-      <div class="hero-tag">صورة توضيحية – الجودة الفعلية أفضل 😉</div>
-    </div>
-  </section>
-
-  <!-- Main product -->
-  <section id="product" class="main-product">
-    <div class="product-text">
-      <span class="product-badge">الأكثر مبيعًا</span>
-      <h2>تشيكن ستريبس مقرمشة – 1 كجم</h2>
-      <p class="product-desc">
-        قطع فراخ بانيه متبلة وجاهزة للقلي، بطعم مقرمش من بره وطري من جوه. مناسبة للساندوتشات، الأطباق الجانبية أو عزومات الأصحاب.
-      </p>
-      <div class="product-meta">
-        <div><strong>الوزن:</strong> 1 كجم – تكفي تقريبًا 3–4 أفراد.</div>
-        <div><strong>طريقة التحضير:</strong> تقلى مباشرة من الفريزر في زيت ساخن حتى اللون الذهبي.</div>
-      </div>
-      <div class="price-now">
-        400 جنيه
-        <span class="old-price">430 جنيه</span>
-      </div>
-
-      <div class="product-controls">
-        <div class="qty-row">
-          <label for="qty">الكمية:</label>
-          <input id="qty" type="number" min="1" value="1">
-          <span>عبوة</span>
+            <!-- Cart -->
+            <div class="cart-icon" id="cartButton" title="سلة المشتريات">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M7 4h-2l-1 2m0 0l2.4 9.6c.1.6.7 1.4 1.6 1.4h8.4c.9 0 1.5-.8 1.6-1.4L20 6H4zm5 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="cart-count" id="cartCount">0</div>
+            </div>
         </div>
-        <button class="btn btn-primary" type="button" onclick="addToCart()">
-          أضف إلى العربة
+
+        <nav>
+            <div class="nav-links">
+                <a href="#" class="active">الصفحة الرئيسية</a>
+                <a href="#products">منتجاتنا</a>
+                <a href="#footer">تواصل معنا</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <!-- HERO -->
+    <section class="hero">
+        <div>
+            <div class="hero-title">سكندر – كبده سريعة التحضير</div>
+            <div class="hero-subtitle">
+                اطلب دلوقتي أجمد وجبة كبدة اسكندراني جاهزة بالتتبيلة والخلطة والعيش،
+                توصل لحد باب بيتك جاهزة للتحمير على طول.
+            </div>
+            <div class="hero-badge">
+                ✅ توصيل في نفس اليوم داخل القاهرة – اطلب قبل الساعة 6 مساءً
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- استبدل الصورة دي بصورة حقيقية من عندك -->
+            <img src="https://via.placeholder.com/600x300?text=SKANDR+Banner" alt="SKANDR banner">
+        </div>
+    </section>
+
+    <!-- CATEGORY TAGS -->
+    <section class="category-bar">
+        <button type="button">
+            <span class="icon">🏷️</span>
+            كبده اسكندراني
         </button>
-        <button class="btn btn-outline" type="button" onclick="checkout()">
-          اطلب الآن عبر واتساب
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products-section" id="products">
+        <div class="products-grid" id="productsGrid">
+            <!-- JS will inject product cards here -->
+        </div>
+    </section>
+</main>
+
+<!-- CART DRAWER -->
+<div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+<div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+        <h3>سلة المشتريات</h3>
+        <button class="cart-close-btn" id="cartCloseBtn">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary">
+        <div class="cart-summary-row">
+            <span>الإجمالي:</span>
+            <span id="cartTotal">0 EGP</span>
+        </div>
+        <button class="checkout-btn" onclick="alert('هنتواصل معاك على الواتساب لتأكيد الطلب 😊');">
+            أكمل الطلب الآن
         </button>
-      </div>
-
-      <p class="note">
-        يمكنك تعديل كمياتك قبل الإرسال على واتساب. يتم تأكيد التوصيل حسب المنطقة وتوافر المخزون.
-      </p>
     </div>
-
-    <div class="product-image-wrapper">
-      <!-- استبدل هذا بصورة باكج تشيكن ستريبس لاحقًا -->
-      صورة المنتج الرئيسي (تشيكن ستريبس 1 كجم).  
-      يفضل صورة أفقية واضحة مع خلفية بسيطة.
-    </div>
-  </section>
-
-  <!-- Location & social -->
-  <section id="location" class="location-section">
-    <strong>موقعنا وخدمات التوصيل</strong>
-    <p>
-      نخدم حاليًا مناطق مختارة داخل القاهرة والجيزة. اسألنا على واتساب عن إمكانية التوصيل لمنطقتك والحد الأدنى للطلب.
-    </p>
-    <div class="location-actions">
-      <!-- غيّر رابط الخريطة لرابط جوجل مابز الخاص بيك -->
-      <a class="btn btn-outline" href="https://maps.google.com" target="_blank">افتح موقعنا على الخريطة</a>
-      <a class="btn btn-primary" href="#contact">اسأل عن التوصيل لمنطقتك</a>
-    </div>
-
-    <div id="contact" class="social-row">
-      <!-- غيّر روابط السوشيال تحت -->
-      <a class="social-chip" href="https://www.facebook.com/YOUR_FACEBOOK_PAGE" target="_blank">
-        <span class="social-icon">f</span>
-        <span>صفحتنا على فيسبوك</span>
-      </a>
-      <a class="social-chip" href="https://www.instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank">
-        <span class="social-icon">IG</span>
-        <span>إنستجرام – صور وعروض</span>
-      </a>
-      <a class="social-chip" id="wa-contact" href="#" target="_blank">
-        <span class="social-icon">WA</span>
-        <span>تواصل مباشر على واتساب</span>
-      </a>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 فروزن – جميع الحقوق محفوظة. موقع تم إنشاؤه على GitHub Pages لاستخدامه مع إعلانات فيسبوك وإنستجرام.
-  </footer>
 </div>
 
+<!-- FOOTER -->
+<footer id="footer">
+    <div class="container">
+        <div class="footer-logo">
+            <div class="footer-logo-box">SKANDR</div>
+        </div>
+        <div class="footer-text">زوروا موقعنا على</div>
+        <div class="footer-social">
+            <!-- استبدل # بروابطك -->
+            <a href="#" aria-label="Phone">📞</a>
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">◎</a>
+            <a href="#" aria-label="TikTok">♬</a>
+        </div>
+    </div>
+</footer>
+
+<!-- SCRIPT -->
 <script>
-  // ========= إعدادات قابلة للتعديل =========
-  const PRODUCT_PRICE = 400; // سعر عبوة تشيكن ستريبس
-  const WHATSAPP_NUMBER = "2010XXXXXXX"; // ← غيّر هذا لرقمك بصيغة دولية بدون +
-  // مثال مصر: 2010XXXXXXXX
+    // ----------- PRODUCTS DATA -----------
+    // عدّل المنتجات كما تحب (الاسم/السعر/الصورة)
+    const products = [
+        {
+            id: 1,
+            name: "كبدة اسكندراني مع التوابل والخلطة + شرايح",
+            weight: "وجبة عائلية",
+            price: 185,
+            image: "https://via.placeholder.com/400x300?text=Pack+1"
+        },
+        {
+            id: 2,
+            name: "كبدة اسكندراني مع التوابل والخلطة 500 جرام",
+            weight: "500 جرام",
+            price: 170,
+            image: "https://via.placeholder.com/400x300?text=Pack+2"
+        },
+        {
+            id: 3,
+            name: "كبدة اسكندراني سادة مع التوابل فقط",
+            weight: "750 جرام",
+            price: 210,
+            image: "https://via.placeholder.com/400x300?text=Pack+3"
+        },
+        {
+            id: 4,
+            name: "وجبة سكندر عائلية (كبدة + صوص + عيش)",
+            weight: "يكفي 4 أفراد",
+            price: 320,
+            image: "https://via.placeholder.com/400x300?text=Family+Pack"
+        }
+    ];
 
-  // ========= من هنا الكود يشتغل لوحده =========
-  let cartItems = 0;
-  let cartTotal = 0;
+    const productsGrid = document.getElementById("productsGrid");
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
 
-  const cartItemsEl = document.getElementById("cart-items");
-  const cartTotalEl = document.getElementById("cart-total");
-  const qtyInput = document.getElementById("qty");
-  const waContactLink = document.getElementById("wa-contact");
+    const cartButton = document.getElementById("cartButton");
+    const cartDrawer = document.getElementById("cartDrawer");
+    const cartBackdrop = document.getElementById("cartBackdrop");
+    const cartCloseBtn = document.getElementById("cartCloseBtn");
+    const cartCountElem = document.getElementById("cartCount");
+    const cartItemsElem = document.getElementById("cartItems");
+    const cartTotalElem = document.getElementById("cartTotal");
 
-  function updateCartDisplay() {
-    cartItemsEl.textContent = cartItems;
-    cartTotalEl.textContent = cartTotal;
-  }
+    let cart = [];
 
-  function addToCart() {
-    const qty = Math.max(1, parseInt(qtyInput.value || "1", 10));
-    const addedTotal = qty * PRODUCT_PRICE;
-    cartItems += qty;
-    cartTotal += addedTotal;
-    updateCartDisplay();
-    alert("تم إضافة " + qty + " عبوة إلى العربة. المجموع الآن: " + cartTotal + " جنيه.");
-  }
+    // ----------- RENDER PRODUCTS ----------
+    function renderProducts(list) {
+        productsGrid.innerHTML = "";
+        if (!list.length) {
+            productsGrid.innerHTML = "<p>لا توجد منتجات مطابقة لبحثك.</p>";
+            return;
+        }
 
-  function resetCart() {
-    cartItems = 0;
-    cartTotal = 0;
-    updateCartDisplay();
-  }
+        list.forEach((p) => {
+            const card = document.createElement("article");
+            card.className = "product-card";
+            card.innerHTML = `
+                <div class="product-image-wrapper">
+                    <img src="${p.image}" alt="${p.name}" />
+                </div>
+                <div class="product-body">
+                    <div class="product-title">${p.name}</div>
+                    <div class="product-weight">${p.weight || ""}</div>
+                    <div class="product-price">EGP ${p.price}</div>
+                    <div class="product-actions">
+                        <button data-id="${p.id}">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 4h-2l-1 2m0 0l2.4 9.6c.1.6.7 1.4 1.6 1.4h8.4c.9 0 1.5-.8 1.6-1.4L20 6H4zm5 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>أضف للسلة</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            productsGrid.appendChild(card);
+        });
 
-  function buildWhatsAppMessage() {
-    const baseQty = Math.max(1, parseInt(qtyInput.value || "1", 10));
-    // لو العربة فاضية نستخدم الكمية الحالية، لو مش فاضية نستخدم أرقام العربة
-    const finalQty = cartItems > 0 ? cartItems : baseQty;
-    const finalTotal = cartItems > 0 ? cartTotal : finalQty * PRODUCT_PRICE;
+        // Attach add-to-cart handlers
+        document.querySelectorAll(".product-actions button").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const id = Number(btn.dataset.id);
+                addToCart(id);
+            });
+        });
+    }
 
-    let text = "عايز اطلب من فروزن:%0A";
-    text += "- تشيكن ستريبس مقرمشة 1 كجم × " + finalQty + " عبوة%0A";
-    text += "إجمالي تقريبي: " + finalTotal + " جنيه.%0A";
-    text += "من فضلك أكدلي التوصيل والوقت المتاح.";
-    return text;
-  }
+    renderProducts(products);
 
-  function checkout() {
-    const msg = buildWhatsAppMessage();
-    const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + msg;
-    window.open(url, "_blank");
-  }
+    // ----------- SEARCH ----------
+    searchForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const term = searchInput.value.trim();
+        const filtered = products.filter((p) =>
+            p.name.toLowerCase().includes(term.toLowerCase())
+        );
+        renderProducts(filtered);
+    });
 
-  // رابط واتساب في جزء "تواصل مباشر"
-  if (waContactLink) {
-    const baseMsg = encodeURIComponent("عايز استفسر عن منتجات فروزن والعروض المتاحة.");
-    waContactLink.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + baseMsg;
-  }
+    // ----------- CART ----------
+    function addToCart(productId) {
+        const existing = cart.find((item) => item.id === productId);
+        if (existing) {
+            existing.qty += 1;
+        } else {
+            const product = products.find((p) => p.id === productId);
+            cart.push({ ...product, qty: 1 });
+        }
+        updateCartUI();
+    }
 
-  // تحديث أولي
-  updateCartDisplay();
+    function updateCartUI() {
+        // count
+        const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+        cartCountElem.textContent = totalQty;
+
+        // items list
+        cartItemsElem.innerHTML = "";
+        if (!cart.length) {
+            cartItemsElem.innerHTML = "<p>السلة فارغة حتى الآن.</p>";
+        } else {
+            cart.forEach((item) => {
+                const div = document.createElement("div");
+                div.className = "cart-item";
+                div.innerHTML = `
+                    <div class="cart-item-title">${item.name}</div>
+                    <div>الكمية: ${item.qty}</div>
+                    <div>السعر: EGP ${item.price * item.qty}</div>
+                `;
+                cartItemsElem.appendChild(div);
+            });
+        }
+
+        // total
+        const totalPrice = cart.reduce(
+            (sum, item) => sum + item.price * item.qty,
+            0
+        );
+        cartTotalElem.textContent = `${totalPrice} EGP`;
+    }
+
+    function openCart() {
+        cartDrawer.classList.add("open");
+        cartBackdrop.style.display = "block";
+    }
+
+    function closeCart() {
+        cartDrawer.classList.remove("open");
+        cartBackdrop.style.display = "none";
+    }
+
+    cartButton.addEventListener("click", openCart);
+    cartCloseBtn.addEventListener("click", closeCart);
+    cartBackdrop.addEventListener("click", closeCart);
 </script>
 
 </body>
