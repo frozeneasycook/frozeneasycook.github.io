@@ -60,40 +60,27 @@ header {
     max-width: 500px;
     margin: 0 20px;
     align-items: center;
-    gap: 10px; /* المسافة بين الأيقونة و البوكس */
 }
 
 .search-box input {
     flex: 1;
     padding: 10px;
-    background: #ffffff;
+    border: none;
     outline: none;
-    border: 2px solid #ddd;   /* فريم خفيف */
-    border-radius: 8px;
-    transition: 0.25s ease;
-}
-
-.search-box input:focus {
-    border-color: var(--blue);
-    box-shadow: 0 0 6px rgba(58,168,255,0.4);
+    border-radius: 4px 0 0 4px;
+    background: #ffffff;
 }
 
 .search-box button {
-    width: 32px;
-    height: 32px;
+    width: 45px;
     background: transparent;
     border: none;
     outline: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
 }
 
-.search-box button svg {
-    width: 26px;
-    height: 26px;
+.search-box button img {
+    width: 28px;
 }
 
 /* ================= CART ================= */
@@ -287,14 +274,10 @@ footer {
 
     <!-- SEARCH -->
     <form class="search-box" onsubmit="return false;">
-        <button type="button" onclick="filterProducts()">
-            <!-- أيقونة بحث SVG بسيطة -->
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="10" cy="10" r="6" fill="none" stroke="#000" stroke-width="2"/>
-                <line x1="14" y1="14" x2="20" y2="20" stroke="#000" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-        </button>
         <input type="text" id="searchInput" placeholder="ابحث عن المنتجات" onkeyup="filterProducts()">
+        <button type="button" onclick="filterProducts()">
+            <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png">
+        </button>
     </form>
 
     <!-- CART -->
@@ -372,4 +355,88 @@ const WHATSAPP_NUMBER = "201069394898";
 /* DUMMY PRODUCTS */
 const products = [
     { id:1, name:"ستريبس اوريجينال 1 كيلو", price:290, image:"https://via.placeholder.com/300" },
-    { id:2, name:"ستري
+    { id:2, name:"ستريبس سبايسي 1 كيلو", price:300, image:"https://via.placeholder.com/300" },
+    { id:3, name:"برجر 1 كيلو", price:240, image:"https://via.placeholder.com/300" },
+    { id:4, name:"كفتة 1 كيلو", price:250, image:"https://via.placeholder.com/300" }
+];
+
+// CART
+let cart = [];
+
+function loadProducts() {
+    const grid = document.getElementById("products");
+    grid.innerHTML = "";
+    products.forEach(p => {
+        grid.innerHTML += `
+        <div class="product-card">
+            <img src="${p.image}">
+            <div class="product-body">
+                <div class="product-title">${p.name}</div>
+                <div class="product-price">EGP ${p.price}</div>
+                <button class="add-btn" onclick="addToCart(${p.id})">إضافة للسلة</button>
+            </div>
+        </div>
+        `;
+    });
+}
+
+function filterProducts() {
+    let q = document.getElementById("searchInput").value.trim().toLowerCase();
+    const grid = document.getElementById("products");
+
+    grid.innerHTML = "";
+
+    products
+        .filter(p => p.name.toLowerCase().includes(q))
+        .forEach(p => {
+            grid.innerHTML += `
+            <div class="product-card">
+                <img src="${p.image}">
+                <div class="product-body">
+                    <div class="product-title">${p.name}</div>
+                    <div class="product-price">EGP ${p.price}</div>
+                    <button class="add-btn" onclick="addToCart(${p.id})">إضافة للسلة</button>
+                </div>
+            </div>`;
+        });
+}
+
+function addToCart(id) {
+    const item = products.find(p => p.id === id);
+    cart.push(item);
+    document.getElementById("cartCount").innerText = cart.length;
+}
+
+function openCheckout() {
+    if(cart.length === 0) {
+        alert("السلة فارغة!");
+        return;
+    }
+    document.getElementById("checkoutModal").style.display = "flex";
+
+    let summary = "";
+    cart.forEach(c => summary += `• ${c.name} – ${c.price} EGP<br>`);
+
+    document.getElementById("orderDetails").innerHTML = summary;
+}
+
+function sendOrder() {
+    const phone = document.getElementById("phoneInput").value.trim();
+    if(phone === "") { alert("ادخل رقم الهاتف"); return; }
+
+    let message = "طلب جديد من موقع Frozen:%0A";
+    cart.forEach(c => message += `• ${c.name} - ${c.price} EGP%0A`);
+    message += `%0Aرقم الهاتف: ${phone}`;
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+}
+
+function directWhatsapp(){
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
+}
+
+loadProducts();
+</script>
+
+</body>
+</html>
