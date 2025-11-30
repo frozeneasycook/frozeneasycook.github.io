@@ -55,39 +55,32 @@ header {
 
 /* ================= SEARCH ================= */
 .search-box {
-    position: relative;
+    display: flex;
     flex: 1;
     max-width: 500px;
     margin: 0 20px;
+    align-items: center;
 }
 
 .search-box input {
-    width: 100%;
-    padding: 12px 45px 12px 12px;
-    border: 2px solid #ccc;
-    border-radius: 50px;
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
     outline: none;
+    border-radius: 30px;
     background: #ffffff;
-    font-size: 16px;
-}
-
-.search-box input:focus {
-    border-color: var(--blue);
-    box-shadow: 0 0 5px rgba(58, 168, 255, 0.4);
+    font-size: 15px;
 }
 
 .search-box button {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-left: -40px;
     background: transparent;
     border: none;
     cursor: pointer;
 }
 
 .search-box button img {
-    width: 22px;
+    width: 26px;
     opacity: 0.7;
 }
 
@@ -123,6 +116,15 @@ nav {
 .nav-links a {
     font-weight: bold;
     color: var(--dark-blue);
+    padding: 6px 14px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+/* ACTIVE STYLE */
+.nav-links a.active {
+    background: var(--dark-blue);
+    color: #fff !important;
 }
 
 /* ================= HERO SECTION ================= */
@@ -298,7 +300,7 @@ footer {
 
 <nav class="container">
     <div class="nav-links">
-        <a href="#">الصفحة الرئيسية</a>
+        <a href="#" class="active">الصفحة الرئيسية</a>
         <a href="#products">منتجاتنا</a>
         <a href="#footer">تواصل معنا</a>
     </div>
@@ -442,6 +444,16 @@ function sendOrder() {
 function directWhatsapp(){
     window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
 }
+
+/* ========= ACTIVE NAVIGATION ========= */
+const navLinks = document.querySelectorAll(".nav-links a");
+
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+    });
+});
 
 loadProducts();
 </script>
