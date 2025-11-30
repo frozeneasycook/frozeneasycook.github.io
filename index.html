@@ -53,40 +53,37 @@ header {
     width: auto;
 }
 
-/* Search */
+/* ================= SEARCH ================= */
 .search-box {
     display: flex;
     flex: 1;
     max-width: 500px;
     margin: 0 20px;
     align-items: center;
-
-    /* إزالة البوردر والخلفية نهائياً */
-    border: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    outline: none !important;
-    padding: 0 !important;
 }
+
 .search-box input {
     flex: 1;
     padding: 10px;
-    border: none !important;
-    outline: none !important;
-    background: #ffffff;
+    border: none;
+    outline: none;
     border-radius: 4px 0 0 4px;
-    box-shadow: none !important;
-}
-.search-box button {
-    width: 45px;
-    background: transparent !important;
-    border: none !important;
-    outline: none !important;
-    cursor: pointer;
-    padding: 0 !important;
+    background: #ffffff;
 }
 
-/* Cart */
+.search-box button {
+    width: 45px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.search-box button img {
+    width: 28px;
+}
+
+/* ================= CART ================= */
 .cart-icon {
     position: relative;
     cursor: pointer;
@@ -183,7 +180,7 @@ nav {
     font-size: 16px;
 }
 
-/* ================= CHECKOUT PAGE ================= */
+/* ================= CHECKOUT MODAL ================= */
 #checkoutModal {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -275,11 +272,15 @@ footer {
         <img src="logo.png" class="logo-img">
     </div>
 
-    <form class="search-box">
+    <!-- SEARCH -->
+    <form class="search-box" onsubmit="return false;">
         <input type="text" id="searchInput" placeholder="ابحث عن المنتجات" onkeyup="filterProducts()">
-        <button>🔍</button>
+        <button type="button" onclick="filterProducts()">
+            <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png">
+        </button>
     </form>
 
+    <!-- CART -->
     <div class="cart-icon" onclick="openCheckout()">
         <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" width="30">
         <div class="cart-count" id="cartCount">0</div>
@@ -362,7 +363,6 @@ const products = [
 // CART
 let cart = [];
 
-/* Load Products */
 function loadProducts() {
     const grid = document.getElementById("products");
     grid.innerHTML = "";
@@ -380,7 +380,6 @@ function loadProducts() {
     });
 }
 
-/* Search Filter */
 function filterProducts() {
     let q = document.getElementById("searchInput").value.trim().toLowerCase();
     const grid = document.getElementById("products");
@@ -402,7 +401,6 @@ function filterProducts() {
         });
 }
 
-/* Cart Functions */
 function addToCart(id) {
     const item = products.find(p => p.id === id);
     cart.push(item);
