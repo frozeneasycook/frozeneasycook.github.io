@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>فروزن إيزي كوك – أفضل منتجات مجمدة جاهزة على الطهي</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="تشيكن ستريبس، برجر، بطاطس وسوسات خاصة بجودة مطاعم – توصيل مجمد لحد باب البيت في القاهرة والجيزة. اطلب الآن من فروزن إيزي كوك عبر واتساب.">
+
+  <!-- Open Graph for Facebook / Instagram Ads -->
+  <meta property="og:title" content="فروزن إيزي كوك – اطلب المنتجات المجمدة أونلاين">
+  <meta property="og:description" content="أقوى عروض على تشيكن ستريبس، برجر، بطاطس وسوسات خاصة. اضغط واطلب على واتساب الآن.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://frozeneasycook.github.io">
+  <!-- TODO: غيّر هذا إلى صورة غلاف حقيقية بعد رفعها -->
+  <!-- <meta property="og:image" content="https://frozeneasycook.github.io/images/hero.jpg"> -->
+
+  <style>
+    :root {
+      --bg: #040b13;
+      --bg-soft: #0c1824;
+      --accent: #1bc47d;
+      --accent-soft: rgba(27, 196, 125, 0.16);
+      --accent-strong: #14a162;
+      --text-main: #ffffff;
+      --text-sub: #c4c8d2;
+      --warning: #ffde59;
+      --card-border: rgba(255,255,255,0.05);
+      --card-bg: rgba(7,17,30,0.9);
+      --radius-lg: 18px;
+      --shadow-soft: 0 16px 40px rgba(0,0,0,0.45);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #142b45 0%, #040b13 45%, #020309 100%);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Top navigation */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 6px 4px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #30d5ff, #1bc47d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.4);
+    }
+    .brand-text-main {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .brand-text-sub {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.85rem;
+    }
+    .nav-links a {
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid transparent;
+      color: var(--text-sub);
+    }
+    .nav-links a:hover {
+      border-color: rgba(255,255,255,0.26);
+      color: var(--text-main);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* Hero */
+    .hero {
+      margin-top: 12px;
+      padding: 18px 18px 20px;
+      border-radius: 26px;
+      background: radial-gradient(circle at top right, rgba(75,138,255,0.35) 0, rgba(4,11,19,0.95) 50%, #020509 100%);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+      gap: 18px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(0,0,0,0.35);
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+    .hero h1 {
+      margin: 10px 0 6px;
+      font-size: 1.9rem;
+    }
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      margin-bottom: 14px;
+    }
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .pill {
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(5,16,29,0.7);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text-sub);
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 4px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, opacity 0.12s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #25d366, #1bc47d);
+      color: #03130a;
+      box-shadow: 0 10px 26px rgba(20, 219, 120, 0.5);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(20, 219, 120, 0.7);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-1px);
+    }
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      margin-top: 4px;
+    }
+
+    .hero-visual {
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(13, 123, 211, 0.32), rgba(1,6,15,0.9));
+      padding: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-visual-main {
+      border-radius: 16px;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.14) 0, rgba(0,0,0,0.85) 55%);
+      height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+    .hero-visual-tag {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: rgba(0,0,0,0.75);
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+    .hero-visual-tag strong {
+      color: var(--warning);
+    }
+
+    /* Sections */
+    .section {
+      margin-top: 26px;
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-soft);
+      border: 1px solid var(--card-border);
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .section h2 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+    .section-sub {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    /* Products */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+    }
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      padding: 10px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.55);
+    }
+    .product-image {
+      width: 100%;
+      border-radius: 12px;
+      background: #111;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      margin-bottom: 8px;
+    }
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+    .product-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .product-tag {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: var(--warning);
+      white-space: nowrap;
+    }
+    .product-desc {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      margin-bottom: 6px;
+    }
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.8rem;
+      margin-bottom: 7px;
+    }
+    .price {
+      font-weight: 700;
+      color: var(--warning);
+    }
+    .portion {
+      color: var(--text-sub);
+    }
+    .credit {
+      font-size: 0.75rem;
+      color: var(--text-sub);
+    }
+
+    /* Steps */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+    .step {
+      padding: 10px;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      background: rgba(0,0,0,0.35);
+    }
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      margin-left: 4px;
+    }
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+    .step-desc {
+      color: var(--text-sub);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+      gap: 10px;
+      font-size: 0.8rem;
+    }
+    .testimonial {
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      background: rgba(0,0,0,0.4);
+    }
+    .stars {
+      color: #ffd568;
+      font-size: 0.75rem;
+      margin-bottom: 4px;
+    }
+    .testimonial-name {
+      font-weight: 600;
+      margin-top: 4px;
+      font-size: 0.8rem;
+    }
+    .testimonial-meta {
+      color: var(--text-sub);
+      font-size: 0.75rem;
+    }
+
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+    }
+    .faq-q {
+      font-weight: 600;
+    }
+    .faq-a {
+      color: var(--text-sub);
+    }
+
+    /* Social */
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.85rem;
+    }
+    .social-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.14);
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .social-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+    }
+
+    footer {
+      margin: 18px 0 26px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-sub);
+    }
+
+    /* Sticky mobile CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(480px, 100% - 24px);
+      z-index: 50;
+    }
+    .sticky-cta-inner {
+      background: radial-gradient(circle at top, rgba(37,211,102,0.2), #041008);
+      border-radius: 999px;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 12px 34px rgba(0,0,0,0.8);
+    }
+    .sticky-text {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
+    .sticky-text strong {
+      color: #eafdf4;
+    }
+    .sticky-btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: #25d366;
+      color: #04100a;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .hero-visual-main {
+        height: 170px;
+      }
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <!-- Top bar -->
+    <header class="top-nav">
+      <div class="brand">
+        <div class="brand-logo">FZ</div>
+        <div>
+          <div class="brand-text-main">فروزن إيزي كوك</div>
+          <div class="brand-text-sub">منتجات مجمدة جاهزة على الطهي</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#products">المنتجات</a>
+        <a href="#bundles">العروض</a>
+        <a href="#how">طريقة الطلب</a>
+        <a href="#faq">الأسئلة الشائعة</a>
+        <a href="#contact">التواصل</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <div class="hero-badge">توصيل مجمد • القاهرة والجيزة</div>
+        <h1>أقوى تشيكن ستريبس وبرجر مجمد… جاهزين في 10 دقائق بس 🔥</h1>
+        <p class="hero-sub">
+          وفر وقت التحضير وخلي البيت بطعم المطاعم. عبوات مجمدة بجودة عالية مع سوسات خاصة وعروض عائلية.
+        </p>
+        <div class="hero-pills">
+          <div class="pill">تجميد مثالي للحفاظ على القوام</div>
+          <div class="pill">توصيل في نفس اليوم (في مناطق محددة)</div>
+          <div class="pill">دفع كاش عند الاستلام</div>
+        </div>
+        <div class="hero-cta">
+          <!-- TODO: استبدل 201211170598 برقمك بصيغة 2010xxxxxxx -->
+          <a class="btn btn-primary" href="https://wa.me/201211170598?text=عايز%20اطلب%20من%20فروزن%20إيزي%20كوك" target="_blank" rel="noopener">
+            اطلب الآن على واتساب
+          </a>
+          <a class="btn btn-outline" href="#products">
+            تصفح أفضل المنتجات
+          </a>
+        </div>
+        <p class="hero-note">
+          اطلب قبل الساعة 6 مساءً للتسليم في نفس اليوم (حسب التوافر والمنطقة).
+        </p>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-visual-main">
+          <!-- يمكنك لاحقًا استبدال هذا بنص أو صورة حقيقية داخل <img> -->
+          تخيل هنا صورة احترافية لصينية تشيكن ستريبس، برجر وبطاطس مع شعار فروزن إيزي كوك.
+          <br>هذه المساحة مخصصة لصورة الغلاف الأساسية لعروضك.
+        </div>
+        <div class="hero-visual-tag">
+          <strong>عروض الشهر:</strong> باكج عائلي خاص – اسألنا على واتساب 🎁
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="section">
+      <div class="section-header">
+        <h2>أكتر المنتجات مبيعًا</h2>
+        <p class="section-sub">ركّز هنا على المنتجات اللي عايز تدفع عليها إعلانات.</p>
+      </div>
+
+      <div class="products-grid">
+
+        <!-- Product 1 -->
+        <article class="product-card">
+          <!-- TODO: غيّر رابط الصورة لرابط حقيقي بعد الرفع -->
+          <img src="https://via.placeholder.com/600x400?text=Chicken+Strips" alt="تشيكن ستريبس مجمدة" class="product-image">
+          <div class="product-header">
+            <div class="product-name">تشيكن ستريبس مقرمشة – 1 كجم</div>
+            <div class="product-tag">الأكثر مبيعًا</div>
+          </div>
+          <p class="product-desc">
+            قطع فراخ بانيه متبلة وجاهزة للقلي أو الإضافة على الباستا والسندوتشات. تكفي 3–4 أفراد.
+          </p>
+          <div class="product-meta">
+            <span class="price">400 EGP</span>
+            <span class="portion">تكفي &gt; 3 وجبات عائلية</span>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/201211170598?text=عايز%20اطلب%20تشيكن%20ستريبس%201كجم" target="_blank" rel="noopener">
+            اطلب تشيكن ستريبس
+          </a>
+        </article>
+
+        <!-- Product 2 -->
+        <article class="product-card">
+          <img src="https://via.placeholder.com/600x400?text=Beef+Burger" alt="برجر لحمة مجمد" class="product-image">
+          <div class="product-header">
+            <div class="product-name">برجر لحمة – 1 كجم</div>
+            <div class="product-tag">مناسب للعزومات</div>
+          </div>
+          <p class="product-desc">
+            برجر لحم بقري عالي الجودة، نسبة دهون مثالية للشوي بدون ما ينشف. مناسب للجريل أو الطاسة.
+          </p>
+          <div class="product-meta">
+            <span class="price">380 EGP</span>
+            <span class="portion">حوالي 10 أقراص برجر</span>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/201211170598?text=عايز%20اطلب%20برجر%20لحمة%201كجم" target="_blank" rel="noopener">
+            اطلب برجر لحمة
+          </a>
+        </article>
+
+        <!-- Product 3 -->
+        <article class="product-card">
+          <img src="https://via.placeholder.com/600x400?text=Fries" alt="بطاطس مقلية مجمدة" class="product-image">
+          <div class="product-header">
+            <div class="product-name">بطاطس جاهزة للقلي – 2.5 كجم</div>
+            <div class="product-tag">الأكثر توفيرًا</div>
+          </div>
+          <p class="product-desc">
+            بطاطس مقطعة ومتجمدة مسبقًا، تحمر بسرعة وتطلع مقرمشة من بره وطريّة من جوه.
+          </p>
+          <div class="product-meta">
+            <span class="price">220 EGP</span>
+            <span class="portion">مثالية للأسر الكبيرة</span>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/201211170598?text=عايز%20اطلب%20بطاطس%20جاهزة%202.5كجم" target="_blank" rel="noopener">
+            اطلب البطاطس
+          </a>
+        </article>
+
+        <!-- Product 4 -->
+        <article class="product-card">
+          <img src="https://via.placeholder.com/600x400?text=Sauces" alt="سوسات خاصة" class="product-image">
+          <div class="product-header">
+            <div class="product-name">باكج سوسات خاصة – 4 نكهات</div>
+            <div class="product-tag">نكهات المطاعم</div>
+          </div>
+          <p class="product-desc">
+            سويت تشيلي، باربكيو، ثوم، وسيراتشا – باكج واحد يكمل أي وجبة تشيكن ستريبس أو برجر.
+          </p>
+          <div class="product-meta">
+            <span class="price">180 EGP</span>
+            <span class="portion">يكفي حتى 10 وجبات</span>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/201211170598?text=عايز%20اطلب%20باكج%20السوسات" target="_blank" rel="noopener">
+            اطلب باكج السوسات
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Bundles / Offers -->
+    <section id="bundles" class="section">
+      <div class="section-header">
+        <h2>عروض وباكجات عائلية</h2>
+        <p class="section-sub">اعمل باكجات تخلي القرار أسهل وتزود متوسط قيمة الطلب.</p>
+      </div>
+      <div class="products-grid">
+
+        <article class="product-card">
+          <div class="product-header">
+            <div class="product-name">باكج عائلي – ستريبس + بطاطس + سوسات</div>
+            <div class="product-tag">الأكثر طلبًا</div>
+          </div>
+          <p class="product-desc">
+            1 كجم تشيكن ستريبس + 2.5 كجم بطاطس + باكج السوسات (4 نكهات).
+          </p>
+          <div class="product-meta">
+            <span class="price">750 EGP</span>
+            <span class="portion">يوفر عن الشراء المنفصل</span>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/201211170598?text=عايز%20باكج%20عائلي%20ستريبس%20+%20بطاطس%20+%20سوسات" target="_blank" rel="noopener">
+            اطلب الباكج العائلي
+          </a>
+        </article>
+
+        <article class="product-card">
+          <div class="product-header">
+            <div class="product-name">باكج برجر نايت</div>
+            <div class="product-tag">مثالي لعزومة الأصحاب</div>
+          </div>
+          <p class="product-desc">
+            1 كجم برجر لحمة + 1 كجم تشيكن ستريبس + بطاطس 2.5 كجم.
+          </p>
+          <div class="product-meta">
+            <span class="price">900 EGP</span>
+            <span class="portion">يكفي 6–8 أفراد</span>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/201211170598?text=عايز%20باكج%20برجر%20نايت" target="_blank" rel="noopener">
+            اطلب باكج برجر نايت
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- How to order -->
+    <section id="how" class="section">
+      <div class="section-header">
+        <h2>طريقة الطلب من فروزن إيزي كوك</h2>
+        <p class="section-sub">3 خطوات بسيطة بدون تسجيل أو تعقيد.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-title">
+            <span class="step-num">1</span> اختر المنتج أو الباكج
+          </div>
+          <p class="step-desc">
+            تصفح المنتجات بالأعلى، وحدد الكميات اللي تناسب عدد أفراد أسرتك.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-title">
+            <span class="step-num">2</span> ابعت الطلب على واتساب
+          </div>
+          <p class="step-desc">
+            اضغط على زر "اطلب على واتساب" – هنستقبل رسالتك مع اسم المنتج والمنطقة، ونرجع نأكد معاك التفاصيل.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-title">
+            <span class="step-num">3</span> استلم الطلب مجمد وجاهز
+          </div>
+          <p class="step-desc">
+            التوصيل في نفس اليوم أو اليوم التالي حسب منطقتك. الدفع كاش عند الاستلام.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+      <div class="section-header">
+        <h2>آراء عملاء جربوا فروزن إيزي كوك</h2>
+        <p class="section-sub">قسم ثقة مهم جدًا لمتابعي الفيسبوك والإنستجرام.</p>
+      </div>
+      <div class="testimonials">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>
+            التشيكن ستريبس طعمها فعلاً زي المطاعم، والبطاطس بتطلع مقرمشة من غير ما تشرب زيت كتير.
+          </p>
+          <div class="testimonial-name">سارة – القاهرة الجديدة</div>
+          <div class="testimonial-meta">عميلة متكررة مرتين في الشهر</div>
+        </div>
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>
+            جربت باكج برجر نايت في عزومة أصحاب، الكمية كانت كافية وجودة البرجر ممتازة.
+          </p>
+          <div class="testimonial-name">أحمد – الشيخ زايد</div>
+          <div class="testimonial-meta">طلب باكج العزومات أكثر من مرة</div>
+        </div>
+        <div class="testimonial">
+          <div class="stars">★★★★☆</div>
+          <p>
+            التوصيل كان في المعاد، والمنتجات وصلت متلجة. تعامل محترم وخدمة سريعة.
+          </p>
+          <div class="testimonial-name">نور – المقطم</div>
+          <div class="testimonial-meta">أول تجربة وهتتكرر إن شاء الله</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="section-header">
+        <h2>الأسئلة الشائعة</h2>
+        <p class="section-sub">ردود جاهزة على أكثر أسئلة عملاء الإعلانات.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">هل المنتجات جاهزة على الطهي ولا محتاجة تجهيز؟</div>
+        <div class="faq-a">
+          كل المنتجات جاهزة على الطهي مباشرة بعد فك التجميد أو القلي حسب نوع المنتج. هنبعتلك إرشادات بسيطة مع أول طلب.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">التوصيل فين؟</div>
+        <div class="faq-a">
+          حاليًا نوفر توصيل في مناطق مختارة في القاهرة والجيزة. ابعت لنا على واتساب منطقتك وهيرد عليك فريق خدمة العملاء.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">إيه طرق الدفع المتاحة؟</div>
+        <div class="faq-a">
+          الدفع كاش عند الاستلام. لو حابب تحويل بنكي أو محفظة إلكترونية ممكن تنسق مع خدمة العملاء على واتساب.
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Social -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <h2>التواصل ومتابعة العروض</h2>
+        <p class="section-sub">خلي الزائر يتحول لمتابع على السوشيال ميديا حتى لو ما طلبش فورًا.</p>
+      </div>
+      <p class="section-sub">
+        تابعنا عشان تشوف أحدث العروض، صور المنتجات، وتجارب العملاء.
+      </p>
+      <div class="social-row">
+        <!-- TODO: غير الروابط لرابط صفحاتك الفعلية -->
+        <a class="social-chip" href="https://www.facebook.com/YOUR_FACEBOOK_PAGE" target="_blank" rel="noopener">
+          <span class="social-icon">f</span>
+          <span>صفحتنا على فيسبوك</span>
+        </a>
+        <a class="social-chip" href="https://www.instagram.com/frozen.easy.cook" target="_blank" rel="noopener">
+          <span class="social-icon">IG</span>
+          <span>إنستجرام – صور وعروض</span>
+        </a>
+        <a class="social-chip" href="https://wa.me/201211170598?text=عايز%20استفسر%20عن%20منتجات%20فروزن%20إيزي%20كوك" target="_blank" rel="noopener">
+          <span class="social-icon">WA</span>
+          <span>تواصل مباشر على واتساب</span>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 فروزن إيزي كوك – جميع الحقوق محفوظة.  
+      <br>تم إنشاء هذه الصفحة باستخدام استضافة GitHub المجانية لعرض المنتجات المجمدة وتشغيل إعلانات فيسبوك وإنستجرام عليها.
+    </footer>
+  </div>
+
+  <!-- Sticky WhatsApp CTA (bottom on mobile & desktop) -->
+  <div class="sticky-cta">
+    <div class="sticky-cta-inner">
+      <div class="sticky-text">
+        جاهز تطلب؟ <strong>رسالة واحدة على واتساب</strong> تكفي، وفريقنا هيتابع معاك.
+      </div>
+      <a class="sticky-btn" href="https://wa.me/201211170598?text=عايز%20اطلب%20من%20فروزن%20إيزي%20كوك" target="_blank" rel="noopener">
+        اطلب الآن
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
