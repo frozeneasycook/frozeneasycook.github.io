@@ -258,31 +258,31 @@ footer {
 
 <!-- ================= HEADER ================= -->
 <header>
-<div class="container top-bar">
+  <div class="container top-bar">
 
-    <div class="logo">
-        <img src="logo.png" class="logo-img">
-    </div>
+      <div class="logo">
+          <img src="logo.png" class="logo-img" alt="Frozen Easy Cook">
+      </div>
 
-    <form class="search-box">
-        <input type="text" placeholder="ابحث عن المنتجات">
-        <button>🔍</button>
-    </form>
+      <form class="search-box" id="searchForm">
+          <input id="searchInput" type="text" placeholder="ابحث عن المنتجات">
+          <button type="submit">🔍</button>
+      </form>
 
-    <div class="cart-icon" onclick="openCheckout()">
-        <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" width="30">
-        <div class="cart-count" id="cartCount">0</div>
-    </div>
+      <div class="cart-icon" onclick="openCheckout()">
+          <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" width="30" alt="cart">
+          <div class="cart-count" id="cartCount">0</div>
+      </div>
 
-</div>
+  </div>
 
-<nav class="container">
-    <div class="nav-links">
-        <a href="#">الصفحة الرئيسية</a>
-        <a href="#products">منتجاتنا</a>
-        <a href="#footer">تواصل معنا</a>
-    </div>
-</nav>
+  <nav class="container">
+      <div class="nav-links">
+          <a href="#">الصفحة الرئيسية</a>
+          <a href="#products">منتجاتنا</a>
+          <a href="#footer">تواصل معنا</a>
+      </div>
+  </nav>
 </header>
 
 <!-- ================= HERO ================= -->
@@ -293,13 +293,13 @@ footer {
         <p>اطلب دلوقتي أفضل منتجات الفروزن الجاهزة ووصلك لحد البيت.</p>
         <div class="hero-badge">⭐ توصيل نفس اليوم</div>
     </div>
-    <img src="https://via.placeholder.com/600x350?text=Frozen+Banner">
+    <img src="https://via.placeholder.com/600x350?text=Frozen+Banner" alt="banner">
 </section>
 </div>
 
 <!-- ================= PRODUCTS ================= -->
 <div class="container">
-<div id="products" class="products-grid"></div>
+  <div id="products" class="products-grid"></div>
 </div>
 
 <!-- ================= CHECKOUT MODAL ================= -->
@@ -317,14 +317,14 @@ footer {
 
 <!-- ================= WHATSAPP FIXED BUTTON ================= -->
 <div class="whatsapp-fixed" onclick="directWhatsapp()">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="whatsapp">
     اطلب الآن
 </div>
 
 <!-- ================= FOOTER ================= -->
 <footer id="footer">
     <div class="footer-logo">
-        <img src="logo.png">
+        <img src="logo.png" alt="Frozen Easy Cook">
     </div>
     <div class="footer-text">تابعونا على السوشيال ميديا</div>
 
@@ -340,7 +340,7 @@ footer {
 <script>
 const WHATSAPP_NUMBER = "201069394898";
 
-/* DUMMY PRODUCTS */
+/* PRODUCTS DATA */
 const products = [
     { id:1, name:"ستريبس اوريجينال 1 كيلو", price:290, image:"https://via.placeholder.com/300" },
     { id:2, name:"ستريبس سبايسي 1 كيلو", price:300, image:"https://via.placeholder.com/300" },
@@ -348,16 +348,16 @@ const products = [
     { id:4, name:"كفتة 1 كيلو", price:250, image:"https://via.placeholder.com/300" }
 ];
 
-// CART
 let cart = [];
 
-function loadProducts() {
+/* RENDER PRODUCTS (with optional list) */
+function renderProducts(list) {
     const grid = document.getElementById("products");
     grid.innerHTML = "";
-    products.forEach(p => {
+    list.forEach(p => {
         grid.innerHTML += `
         <div class="product-card">
-            <img src="${p.image}">
+            <img src="${p.image}" alt="${p.name}">
             <div class="product-body">
                 <div class="product-title">${p.name}</div>
                 <div class="product-price">EGP ${p.price}</div>
@@ -368,6 +368,29 @@ function loadProducts() {
     });
 }
 
+/* INITIAL RENDER */
+renderProducts(products);
+
+/* SEARCH FUNCTIONALITY */
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+
+searchForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const term = searchInput.value.trim().toLowerCase();
+
+    if (!term) {
+        renderProducts(products);
+        return;
+    }
+
+    const filtered = products.filter(p =>
+        p.name.toLowerCase().includes(term)
+    );
+    renderProducts(filtered);
+});
+
+/* CART + CHECKOUT */
 function addToCart(id) {
     const item = products.find(p => p.id === id);
     cart.push(item);
@@ -401,8 +424,6 @@ function sendOrder() {
 function directWhatsapp(){
     window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
 }
-
-loadProducts();
 </script>
 
 </body>
